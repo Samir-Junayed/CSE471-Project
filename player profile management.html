@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Player Profile Management</title>
+
+    <style>
+
+        body{
+            background-color:#f4f7f6;
+            font-family:Arial, Helvetica, sans-serif;
+            color:#333333;
+        }
+
+        h1{
+            color:#0b6b4a;
+        }
+
+        h2{
+            color:#145a32;
+        }
+
+        h3{
+            color:#145a32;
+        }
+
+        table{
+            background-color:white;
+            border-collapse:collapse;
+        }
+
+        table, th, td{
+            border:1px solid #bdbdbd;
+        }
+
+        th{
+            background-color:#0b6b4a;
+            color:white;
+        }
+
+        td{
+            padding:10px;
+        }
+
+        input{
+            padding:6px;
+            border:1px solid #999999;
+        }
+
+        hr{
+            border:1px solid #0b6b4a;
+        }
+
+    </style>
+
+</head>
+</head>
+
+<body>
+
+    <center>
+        <h1>Player Profile Management</h1>
+        <hr width="80%">
+    </center>
+
+    <center>
+        <img src="https://via.placeholder.com/150"
+             alt="Player Profile Picture">
+
+        <h3>Player Profile</h3>
+    </center>
+
+    <hr>
+
+    <form>
+
+        <table cellpadding="10">
+
+            <tr>
+                <td><b>Full Name</b></td>
+
+                <td>
+                    <input
+                        type="text"
+                        name="full_name"
+                        value="{{ profile.full_name }}"
+                        size="40">
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Email</b></td>
+
+                <td>
+                    <input
+                        type="email"
+                        name="email"
+                        value="{{ profile.email }}"
+                        size="40">
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Phone Number</b></td>
+
+                <td>
+                    <input
+                        type="text"
+                        name="phone"
+                        value="{{ profile.phone }}"
+                        size="40">
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Location</b></td>
+
+                <td>
+                    <input
+                        type="text"
+                        name="location"
+                        value="{{ profile.location }}"
+                        size="40">
+                </td>
+            </tr>
+
+            <tr>
+                <td><b>Membership</b></td>
+
+                <td>
+                    <input
+                        type="text"
+                        value="{{ profile.membership }}"
+                        readonly
+                        size="20">
+                </td>
+            </tr>
+
+        </table>
+
+    </form>
+
+    <hr>
+
+    <h2>Upcoming Booking</h2>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Turf Name</th>
+            <td>{{ booking.turf_name }}</td>
+        </tr>
+
+        <tr>
+            <th>Location</th>
+            <td>{{ booking.location }}</td>
+        </tr>
+
+        <tr>
+            <th>Date</th>
+            <td>{{ booking.date }}</td>
+        </tr>
+
+        <tr>
+            <th>Time</th>
+            <td>{{ booking.time }}</td>
+        </tr>
+
+        <tr>
+            <th>Status</th>
+            <td>{{ booking.status }}</td>
+        </tr>
+
+    </table>
+
+    <hr>
+    <h2>Past Bookings</h2>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Recent Turf Bookings</th>
+        </tr>
+
+        {% for booking in past_bookings %}
+        <tr>
+            <td>{{ booking.turf_name }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <hr>
+
+    <center>
+
+        <h3>Player Membership</h3>
+
+        <table border="1" cellpadding="10">
+
+            <tr>
+                <th>Membership Type</th>
+                <td>{{ profile.membership }}</td>
+            </tr>
+
+        </table>
+
+    </center>
+
+    <br>
+
+    <hr>
+
+    <center>
+
+        <h4>Player Dashboard</h4>
+
+        <p>
+            This page displays the player's profile information,
+            upcoming booking details, and the latest four past bookings.
+        </p>
+
+    </center>
+
+</body>
+
+</html>
