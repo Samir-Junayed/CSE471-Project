@@ -2,10 +2,9 @@ from flask import Flask, render_template, request, jsonify
 from database import players, bookings
 app = Flask(__name__)
 
-# -----------------------------
 # Temporary Player Profile Data
-# (Will come from MongoDB later)
-# -----------------------------
+# (Will come from MongoDB)
+
 player_profile = {
     "full_name": "",
     "email": "",
@@ -14,10 +13,8 @@ player_profile = {
     "membership": ""
 }
 
-# -----------------------------
 # Temporary Upcoming Booking Data
-# (Will come from MongoDB later)
-# -----------------------------
+# (Will come from MongoDB)
 upcoming_booking = {
     "turf_name": "",
     "location": "",
@@ -26,16 +23,12 @@ upcoming_booking = {
     "status": ""
 }
 
-# -----------------------------
 # Temporary Past Bookings Data
-# (Will come from MongoDB later)
-# -----------------------------
+# (Will come from MongoDB)
 past_bookings = []
 
-
-# -----------------------------
 # Home Page
-# -----------------------------
+
 @app.route("/")
 def home():
 
@@ -46,19 +39,15 @@ def home():
         past_bookings=past_bookings
     )
 
-
-# -----------------------------
 # View Player Profile
-# -----------------------------
+
 @app.route("/profile", methods=["GET"])
 def get_profile():
 
     return jsonify(player_profile)
 
-
-# -----------------------------
 # Update Player Profile
-# -----------------------------
+
 @app.route("/profile/update", methods=["POST"])
 def update_profile():
 
@@ -99,18 +88,15 @@ def update_profile():
     })
 
 
-# -----------------------------
 # View Upcoming Booking
-# -----------------------------
+
 @app.route("/booking", methods=["GET"])
 def get_booking():
 
     return jsonify(upcoming_booking)
 
-
-# -----------------------------
 # Update Upcoming Booking
-# -----------------------------
+
 @app.route("/booking/update", methods=["POST"])
 def update_booking():
 
@@ -151,9 +137,8 @@ def update_booking():
     })
 
 
-# -----------------------------
 # View Past Bookings
-# -----------------------------
+
 @app.route("/past-bookings", methods=["GET"])
 def get_past_bookings():
 
@@ -161,10 +146,8 @@ def get_past_bookings():
 
     return jsonify(latest_four[::-1])
 
-
-# -----------------------------
 # Add Past Booking
-# -----------------------------
+
 @app.route("/past-bookings/add", methods=["POST"])
 def add_past_booking():
 
@@ -181,7 +164,6 @@ def add_past_booking():
         "message": "Past Booking Added Successfully",
         "past_bookings": past_bookings[-4:][::-1]
     })
-
 
 if __name__ == "__main__":
     app.run(debug=True)
