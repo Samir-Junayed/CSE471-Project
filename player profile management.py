@@ -60,12 +60,12 @@ def update_profile():
     # Validation
 
     if not full_name or len(full_name) > 150:
-        return "Invalid Full Name"
+        return "Name too long"
 
     if not email or len(email) > 150:
         return "Invalid Email"
 
-    if not phone or len(phone) > 150:
+    if not phone or len(phone) > 20:
         return "Invalid Phone"
 
     if not location or len(location) > 150:
@@ -109,7 +109,7 @@ def update_booking():
     # Validation
 
     if not turf_name:
-        return "Invalid Turf Name"
+        return "There is no such Turf"
 
     if not location:
         return "Invalid Location"
