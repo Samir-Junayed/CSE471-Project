@@ -2,9 +2,6 @@ from flask import Flask, render_template, request, jsonify
 from database import players, bookings
 app = Flask(__name__)
 
-# Temporary Player Profile Data
-# (Will come from MongoDB)
-
 player_profile = {
     "full_name": "",
     "email": "",
@@ -13,8 +10,7 @@ player_profile = {
     "membership": ""
 }
 
-# Temporary Upcoming Booking Data
-# (Will come from MongoDB)
+
 upcoming_booking = {
     "turf_name": "",
     "location": "",
@@ -24,7 +20,7 @@ upcoming_booking = {
 }
 
 # Temporary Past Bookings Data
-# (Will come from MongoDB)
+
 past_bookings = []
 
 # Home Page
