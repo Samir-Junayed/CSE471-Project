@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
+const { players, bookings, payments } = require("./database");
+
 const app = express();
 
 
@@ -343,6 +345,7 @@ app.post("/payment/confirm", (req, res) => {
 app.listen(5000, () => {
 
     console.log("Player Profile and Payment API is running");
+
     console.log("Server running at http://localhost:5000");
 
 });
