@@ -6,7 +6,7 @@ const { MongoClient } = require("mongodb");
 // ============================================================
 
 const client = new MongoClient(
-    "mongodb+srv://samirdjunayed200_db_user:YOUR_PASSWORD@cluster0.rznywvv.mongodb.net/turfconnect_dhaka?retryWrites=true&w=majority&appName=Cluster0"
+    "mongodb+srv://samirdjunayed200_db_user:KL9U7ym3jYZcQRHk@cluster0.xsyhrsd.mongodb.net/?appName=Cluster0"
 );
 
 
@@ -18,22 +18,12 @@ const db = client.db("turfconnect_dhaka");
 
 
 // ============================================================
-// PLAYER PROFILE COLLECTION
+// COLLECTIONS
 // ============================================================
 
 const players = db.collection("players");
 
-
-// ============================================================
-// BOOKING COLLECTION
-// ============================================================
-
 const bookings = db.collection("bookings");
-
-
-// ============================================================
-// PAYMENT COLLECTION
-// ============================================================
 
 const payments = db.collection("payments");
 
@@ -43,6 +33,7 @@ const payments = db.collection("payments");
 // ============================================================
 
 module.exports = {
+    client,
     players,
     bookings,
     payments
